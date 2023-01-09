@@ -1,0 +1,25 @@
+.logo{
+    width: 86px;
+    height: 40px;
+}
+.lock-background{
+    width: 40px;
+    border-radius: 50%;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    background:#9c27b0;
+    height: 40px;
+    margin: auto;
+}
+.signIn-container{
+    text-align: center;
+    margin-top: 1rem;
+}
+.signIn-Links{
+    display: flex;
+    justify-content: space-between;
+    margin-top: 1rem;
+    color: #0288d1;
+}
+
