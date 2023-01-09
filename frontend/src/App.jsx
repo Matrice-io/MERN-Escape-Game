@@ -1,9 +1,30 @@
+
+import Header from "./components/Header"
+import { createTheme } from '@mui/material';
+import { ThemeProvider } from '@emotion/react';
+import SignIn from "./components/SignIn";
+import SignUp from "./components/SignUp";
+
+const theme = createTheme({
+    palette: {
+        primary: {
+            main: "#6059bd",
+        },
+        secondary:{
+          main: "#fff"
+        }
+
+    }
+})
 function App() {
 
   return (
-    <div>
-      Initial setup
-    </div>
+    <ThemeProvider theme={theme}>
+      <Header />
+      {/* <SignIn /> */}
+      <SignUp />
+
+    </ThemeProvider>
   )
 }
 
