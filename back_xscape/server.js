@@ -9,6 +9,7 @@ console.log("This is the port : " + port);
 import MongoDBClient from "./mongoClient.js";
 import { default as userRoutes } from "./routes/users.js";
 import { default as roomRoutes } from "./routes/rooms.js";
+import {default as bookingRoutes} from "./routes/bookings.js"
 
 // (Enable All CORS Requests)
 app.use(cors());
@@ -30,7 +31,9 @@ roomRoutes(app)
 
 //Route users
 userRoutes(app)
-// usersRoutes(app);
+
+//Route bookings
+bookingRoutes(app)
 
 app.listen(port, () => {
   console.log(`Connecté au port ${port} on DB ${process.env.DB_NAME}`);
