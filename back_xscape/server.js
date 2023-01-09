@@ -34,5 +34,5 @@ userRoutes(app)
 
 app.listen(port, () => {
   console.log(`Connecté au port ${port} on DB ${process.env.DB_NAME}`);
-  // MongoDBClient;
+  MongoDBClient();
 });
