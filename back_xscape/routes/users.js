@@ -27,7 +27,7 @@ const userRoutes = (app) => {
       })
     })
 
-  app.put("/users/:id/update", async (req, res) => {
+  app.put("/users/:id/update", (req, res) => {
     const userId = req.params.id;
     User.updateOne({_id : userId}, {...req.body})
       .then((data) => {
@@ -38,17 +38,12 @@ const userRoutes = (app) => {
       });
   });
 
-  // app.delete("/users/delete/:id", async (req, res) => {
-  //   const id = req.params.id;
-  //   const result = await User.deleteOne({ _id: id });
-  //   res.json({ status: 200, result: result });
-  // });
+  app.delete("/users/:id/delete", async (req, res) => {
+    const userId = req.params.id;
+    const result = await User.deleteOne({ _id: userId });
+    res.json({ status: 200});
+  });
 
-  // app.get("/categories/:category/users", async (req, res) => {
-  //   const category = req.params.category;
-  //   const result = await User.find({ category: category });
-  //   res.json({ status: 200, result: result });
-  // });
 };
 
 export default userRoutes;
