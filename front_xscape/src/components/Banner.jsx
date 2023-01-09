@@ -7,7 +7,7 @@ const Banner = () => {
               <div class="container">
                 <h1>Le Wagon brings <strong>tech skills</strong> to <strong>creative people</strong>!</h1>
                 <p>Change your life and learn to code at one of our campuses around the world.</p>
-                <a class="btn btn-flat" href="#">Apply now</a>
+                <a class="btn btn-flat" href="#">Apply now</a> 
               </div>
             </div>
         </div>
