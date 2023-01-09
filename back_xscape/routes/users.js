@@ -1,15 +1,25 @@
 import User from "../models/users.js";
 
 const userRoutes = (app) => {
-  app.get("/users", async (req, res) => {
-    const users = await User.find({});
-    res.json({ status: 200, users: users });
+  app.get("/users", (req, res) => {
+    User.find({})
+      .then((data) => {
+        res.status(200).json(data);
+      })
+      .catch((err) => {
+        res.status(400).json({ err });
+      });
   });
 
-  app.get("/users/:id", async (req, res) => {
+  app.get("/users/:id", (req, res) => {
     const id = req.params.id;
-    const user = await User.find({ _id: id });
-    res.json({ status: 200, users: user });
+    User.find({ _id: id })
+      .then((data) => {
+        res.status(200).json(data);
+      })
+      .catch((err) => {
+          res.status(400).json({ err });
+      });
   });
 
   app.post("/users/add", (req, res) => {
