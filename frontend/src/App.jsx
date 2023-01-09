@@ -4,6 +4,7 @@ import { createTheme } from '@mui/material';
 import { ThemeProvider } from '@emotion/react';
 import SignIn from "./components/SignIn";
 import SignUp from "./components/SignUp";
+import Footer from "./components/Footer";
 
 const theme = createTheme({
     palette: {
@@ -23,7 +24,7 @@ function App() {
       <Header />
       {/* <SignIn /> */}
       <SignUp />
-
+      <Footer />
     </ThemeProvider>
   )
 }
