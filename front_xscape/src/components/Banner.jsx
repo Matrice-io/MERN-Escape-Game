@@ -2,15 +2,26 @@ import React from 'react';
 
 const Banner = () => {
     return (
-        <div>
-            <div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/background.png);">
-              <div class="container">
-                <h1>Le Wagon brings <strong>tech skills</strong> to <strong>creative people</strong>!</h1>
-                <p>Change your life and learn to code at one of our campuses around the world.</p>
-                <a class="btn btn-flat" href="#">Apply now</a>
-              </div>
-            </div>
+      <div>
+        <div
+          className="banner"
+          style={{
+            backgroundImage:
+              "linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)),url(https://images.unsplash.com/photo-1549186478-6d9b882e7194?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2371&q=80)"
+          }}
+        >
+          <div className="container">
+            <h1>
+              <strong>L'Escape Game</strong> ultime pour{" "}
+              <strong>les joueurs créatifs</strong>!
+            </h1>
+            <p>Un escape game comme vous n'en avez jamais vu.</p>
+            <a className="btn btn-flat" href="#rooms">
+              Apply now
+            </a>
+          </div>
         </div>
+      </div>
     );
 }
 
