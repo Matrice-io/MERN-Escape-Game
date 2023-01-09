@@ -1,5 +1,5 @@
 import React from 'react';
-import logo from "./../assets/logo-esc.png";
+import logo from "./../assets/images/logo-esc.png";
 
 
 
