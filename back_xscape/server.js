@@ -9,7 +9,7 @@ console.log("This is the port : " + port);
 import MongoDBClient from "./mongoClient.js";
 import { default as userRoutes } from "./routes/users.js";
 import { default as roomRoutes } from "./routes/rooms.js";
-import {default as bookingRoutes} from "./routes/bookings.js"
+import { default as bookingRoutes } from "./routes/bookings.js"
 
 // (Enable All CORS Requests)
 app.use(cors());
