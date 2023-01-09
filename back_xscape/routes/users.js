@@ -6,11 +6,11 @@ const userRoutes = (app) => {
     res.json({ status: 200, users: users });
   });
 
-  // app.get("/users/:id", async (req, res) => {
-  //   const id = req.params.id;
-  //   const user = await User.find({ _id: id });
-  //   res.json({ status: 200, users: user });
-  // });
+  app.get("/users/:id", async (req, res) => {
+    const id = req.params.id;
+    const user = await User.find({ _id: id });
+    res.json({ status: 200, user: user });
+  });
 
   // app.post("/users/add", async (req, res) => {
   //   const data = {
