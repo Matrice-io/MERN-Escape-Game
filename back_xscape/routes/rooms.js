@@ -1,17 +1,15 @@
 import Room from "../models/rooms.js";
 
 const roomRoutes = (app) => {
-  app.get("/rooms", async (request, response) => {
-    const rooms = await Room.find({});
-    response.json({ status: 200, rooms: rooms });
-
-    try {
-      request.setEncoding(rooms);
-    } catch (error) {
-      response.statusMessage(500).send(error);
-    }
+  app.get("/rooms", (request, response) => {
+    Room.find()
+      .then((data) => {
+        res.status(200).json(data);
+      })
+      .catch((err) => {
+        res.status(400).json({ err });
+      });
   });
 };
 
-// export default roomRoutes
 export default roomRoutes;
