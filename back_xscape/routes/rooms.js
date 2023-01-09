@@ -1,9 +1,9 @@
 import Room from "../models/rooms.js";
 
 const roomRoutes = (app) => {
-  app.get("http://http://localhost:5000/rooms", async (request, response) => {
+  app.get("/rooms", async (request, response) => {
     const rooms = await Room.find({});
-    response.json({ status: 200, users: users });
+    response.json({ status: 200, rooms: rooms });
 
     try {
       request.setEncoding(rooms);

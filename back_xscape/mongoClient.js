@@ -3,9 +3,9 @@ import { mongoose} from "mongoose";
 import dotenv from "dotenv";
 dotenv.config({ path: "./../.env" });
 const DB = process.env.DB_NAME;
-console.log("DB in mongoClient" + DB)
+// console.log("DB in mongoClient" + DB)
 const URI = `mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASSWORD}@cluster0.cnjvvtk.mongodb.net/${DB}?retryWrites=true&w=majority`;
-console.log(process.env.DB_USER);
+// console.log(process.env.DB_USER);
 
 const MongoDBClient = async () => {
 
