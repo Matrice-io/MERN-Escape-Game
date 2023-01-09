@@ -9,23 +9,23 @@ const userRoutes = (app) => {
   app.get("/users/:id", async (req, res) => {
     const id = req.params.id;
     const user = await User.find({ _id: id });
-    res.json({ status: 200, user: user });
+    res.json({ status: 200, users: user });
   });
 
-  // app.post("/users/add", async (req, res) => {
-  //   const data = {
-  //     name: req.body.name,
-  //     description: req.body.description,
-  //     price: req.body.price,
-  //     // category: req.body.category,
-  //     creationDate: new Date(),
-  //   };
-
-  //   const user = new User(data);
-  //   const result = await user.save();
-
-  //   res.json({ status: 200, result: result });
-  // });
+  app.post("/users/add", async (req, res) => {
+    const user= new User({
+      ...req.body,
+      creationDate: new Date(),
+    });
+    user 
+      .save()
+      .then((data)=>{
+        res.status(200).json(data)
+      })
+      .catch((err) => {
+        res.status(400).json({err})
+      })
+    })
 
   // app.put("/users/update/:id", async (req, res) => {
   //   const id = req.params.id;
