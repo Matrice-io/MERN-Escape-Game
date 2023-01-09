@@ -11,8 +11,8 @@ const bookingRoutes = (app) => {
           });
     });
 
-    app.get("/booking/:id", (req, res) => {
-        const roomId = req.params.id;
+    app.get("/booking/:roomId", (req, res) => {
+        const roomId = req.params.roomId;
         Booking.find({ roomId: roomId })
             .then((data) => {
                 res.status(200).json(data);
