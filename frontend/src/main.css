@@ -23,3 +23,7 @@
     color: #0288d1;
 }
 
+.signUp-name-surname-inputs {
+    display: flex;
+    gap: 10px;
+}
