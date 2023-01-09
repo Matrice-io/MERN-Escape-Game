@@ -31,7 +31,7 @@ const userRoutes = (app) => {
     const userId = req.params.id;
     User.updateOne({_id : userId}, {...req.body})
       .then((data) => {
-        res.status(200).json({ message: "Données utilisateur modifiées", data : data });
+        res.status(200).json({ message: "Données utilisateur modifiées"});
       })
       .catch((err) => {
           res.status(400).json({ err });
