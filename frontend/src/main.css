@@ -2,7 +2,9 @@
  body {
     margin: 0
  }
- 
+ li{
+   list-style: none;
+ }
  /* HEADER */
 
  /* .header-container {
@@ -48,6 +50,10 @@ form {
     margin-bottom: 4rem;
 }
 
+ /* HOME */
+
+ 
+
  /* FOOTER */
 
  footer {
@@ -69,7 +75,6 @@ form {
  }
 
  footer ul {
-    list-style-type: none;
     display: flex;
     gap: 3px;
     padding: 0;
