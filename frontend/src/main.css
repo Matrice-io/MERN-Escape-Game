@@ -1,7 +1,23 @@
+ /* RESET */
+ body {
+    margin: 0
+ }
+ 
+ /* HEADER */
+
+ /* .header-container {
+    max-width: 1250px;
+    display: flex;
+    justify-content: space-between;
+ } */
+
 .logo{
     width: 86px;
     height: 40px;
 }
+
+ /* FORMS (SignIn & SignUp */
+
 .lock-background{
     width: 40px;
     border-radius: 50%;
@@ -27,3 +43,74 @@
     display: flex;
     gap: 10px;
 }
+
+form {
+    margin-bottom: 4rem;
+}
+
+ /* FOOTER */
+
+ footer {
+    background-color: #343434;
+    color: #fff;
+    padding: 2rem 0rem 2rem 0rem;
+ }
+
+ .footer-container {
+    max-width: 1250px;
+    margin: auto;
+    display: flex;
+    flex-wrap: wrap;
+    padding: 0 2rem;
+ }
+
+ .footer-item {
+    flex: 25%;
+ }
+
+ footer ul {
+    list-style-type: none;
+    display: flex;
+    gap: 3px;
+    padding: 0;
+ }
+
+ footer li a {
+    text-decoration: none;
+    color: white;
+ }
+
+ address {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+ }
+
+ address a {
+    text-decoration: none;
+ }
+
+ .footer-adress {
+    color: blue;
+ }
+
+ .footer-tel {
+    color: #fff;
+ }
+
+ footer p a {
+    color: #fff;
+ }
+
+ footer p {
+    color: #7c7e80;
+ }
+
+ footer h3 {
+    font-style: italic;
+ }
+
+ .footer-social {
+    color: white;
+    margin: 0 5px;
+ }
