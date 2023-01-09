@@ -13,5 +13,4 @@ const roomRoutes = (app) => {
   });
 };
 
-// export default roomRoutes
 export default roomRoutes;
