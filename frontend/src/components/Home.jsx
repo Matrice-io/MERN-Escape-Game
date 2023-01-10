@@ -1,20 +1,29 @@
-import React from 'react';
-import bddesc from '../../../backend/bddesc'; 
+import React, { useState } from 'react';
+// import bddesc from '../../../backend/bddesc'; 
+import useFetch from '../utils/useFetch';
 import RoomCard from './RoomCard';
 
 const Home = () => {
+    const { data, loading, error } = useFetch('http://localhost:3000/rooms')
+
     return (
-        <ul className='home-list'>
-            {bddesc.map((room) => (
-                <li key={room.name}>
-                    <RoomCard 
-                        image={room.img} 
-                        description={room.description} 
-                        title={room.name}
-                        id={room.name}/>
-                </li>
-            ))}
-        </ul>
+        <>
+            {loading || error ? (
+                <p>Loading...</p>
+            ) : (
+            <ul className='home-list'>
+                {data.rooms.map(room => (
+                    <li key={room._id}>
+                        <RoomCard 
+                            image={room.img} 
+                            description={room.description} 
+                            title={room.name}
+                            id={room._id}/>
+                    </li> 
+                ))}
+            </ul>
+            )}
+        </>
     );
 }
 

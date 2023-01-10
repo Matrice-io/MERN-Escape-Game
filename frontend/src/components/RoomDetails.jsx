@@ -1,6 +1,6 @@
 import { useParams } from "react-router-dom"
 
-import bddesc from "../../../backend/bddesc"
+// import bddesc from "../../../backend/bddesc"
 
 import * as React from 'react';
 import Card from '@mui/material/Card';
@@ -12,28 +12,33 @@ import Typography from '@mui/material/Typography';
 import { Link } from '@mui/material';
 import RoomPlanning from "./RoomPlanning";
 import { Container } from "@mui/system";
+import useFetch from "../utils/useFetch";
 
 const RoomDetails = () => {
-    let { roomId } = useParams()
-    const thisRoom = bddesc.filter(room => room.name === roomId)[0]
+  let { roomId } = useParams()
+  const { data, loading, error } = useFetch(`http://localhost:3000/rooms/${roomId}`)
 
-    return(
+  return (
+    <>
+    {loading || error ? (
+      <p>Loading...</p>
+    ) : (
         <Container sx={{ maxWidth: "xs" }}>
         <Card sx={{ maxWidth: 1000, m: 3 }}>
         <CardMedia
-          image={thisRoom.img}
+          image={data.room[0].img}
           component="img"
-          title={thisRoom.name}
+          title={data.room[0].name}
           sx={{ maxHeight: 400 }}
         />
         <CardContent>
           <Typography gutterBottom variant="h5" component="div">
-            {thisRoom.name}
+            {data.room[0].name}
           </Typography>
           <Typography sx={{ mb: 2 }} variant="body2" color="text.secondary">
-            {thisRoom.description}
+            {data.room[0].description}
           </Typography>
-          <RoomPlanning planning={thisRoom.planning} />
+          <RoomPlanning planning={data.room[0].planning} />
         </CardContent>
         <CardActions>
           <Button size="small">
@@ -44,7 +49,8 @@ const RoomDetails = () => {
         </CardActions>
       </Card>
       </Container>
-    )
+    )}
+  </>)
 }
 
 export default RoomDetails
