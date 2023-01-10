@@ -7,6 +7,7 @@ import Footer from "./components/Footer";
 import Home from "./components/Home";
 import RoomDetails from "./components/RoomDetails";
 import { Routes, Route } from 'react-router-dom'
+import History from "./components/History";
 
 const theme = createTheme({
     palette: {
@@ -30,6 +31,7 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/room/:roomId" element={<RoomDetails />} />
       </Routes>
+      <History path="/history" element={<History />} />
       <Footer />
     </ThemeProvider>
   )
