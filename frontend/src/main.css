@@ -39,17 +39,13 @@
     justify-content: space-between;
     margin-top: 1rem;
     color: #0288d1;
+    margin-bottom: 4rem;
 }
 
 .signUp-name-surname-inputs {
     display: flex;
     gap: 10px;
 }
-
-form {
-    margin-bottom: 4rem;
-}
-
  /* HOME */
 
  
@@ -67,11 +63,12 @@ footer {
    margin: auto;
    display: flex;
    flex-wrap: wrap;
-   padding: 0 2rem;
+   /* padding: 0 2rem; */
+   justify-content: space-around;
 }
 
 .footer-item {
-   flex: 25%;
+   max-width: 300px;
 }
 
 footer ul {
@@ -113,6 +110,7 @@ footer p {
 
 footer h3 {
    font-style: italic;
+   margin-top: 0;
 }
 
 .footer-social {
