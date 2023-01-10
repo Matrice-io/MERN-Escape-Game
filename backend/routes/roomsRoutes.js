@@ -26,15 +26,9 @@ const roomsRoutes = (app) => {
     
     app.put('/rooms/update/:id', async(req,res)=>{
         const id = req.params.id
-        const data = {
-            name : req.body.name,
-            description: req.body.description,
-            price: req.body.price,
-            category: req.body.category
-        }
-        const result = await Rooms.updateOne({_id: id}, data)
+        //planing[0].morning = false
+        const result = await Rooms.updateOne({_id: id}, {...body})
         res.json({status: 200, result: result})
-    
     })
 }
 
