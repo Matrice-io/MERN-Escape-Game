@@ -2,16 +2,19 @@ import FacebookOutlinedIcon from '@mui/icons-material/FacebookOutlined';
 import TwitterIcon from '@mui/icons-material/Twitter';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import GitHubIcon from '@mui/icons-material/GitHub';
+import { Link } from 'react-router-dom';
 
 const Footer = () => {
     return (
         <footer>
             <div className="footer-container">
                 <div className="footer-item">
-                    <img src="../assets/logo-esc.png" alt="escape-room-logo" className="logo" />
+                    <Link to="/">
+                        <img className='logo' src='../assets/logo-esc.png' alt='escape-game-logo'/>
+                    </Link>
                     <ul>
                         <li>
-                            <a href="#" >Accueil |</a>
+                            <a href="/" >Accueil |</a>
                         </li>
                         <li>
                             <a href="#" >Historique</a>
@@ -25,7 +28,10 @@ const Footer = () => {
                         <a className="footer-tel" href="tel: +33142928100">+33 1 42 92 81 00</a>
                         <a href="mailto: contact@escape-game.com">contact@escape-game.com</a>
                     </address>
-                    <p>Copyright © <a href="#">SLI & SYL</a> 2022</p>
+                    <p>Copyright © 
+                        <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" target="_blank" >
+                            SLI & SYL
+                        </a> 2022</p>
                 </div>
                 <div className="footer-item">
                     <h3>A propos</h3>

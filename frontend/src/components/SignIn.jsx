@@ -24,7 +24,7 @@ const SignIn = () => {
             </form>
             <div className='signIn-Links'>
                 <Link href='#'>Mot de passe oublié ?</Link>
-                <Link href='#'>Pas de compte ? Inscrivez-vous</Link>
+                <Link href='/signup'>Pas de compte ? Inscrivez-vous</Link>
             </div>
           
         </Container>

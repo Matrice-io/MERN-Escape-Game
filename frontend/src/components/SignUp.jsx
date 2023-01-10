@@ -18,7 +18,7 @@ const SignUp = () => {
       };
 
     return (
-        <Container maxWidth="xs" className='signIn-container'>
+        <Container maxWidth="xs" className='signIn-container' sx={{ mb: 5 }}>
             <div className='lock-background'>
                 <HttpsIcon color="secondary"/>
             </div>
