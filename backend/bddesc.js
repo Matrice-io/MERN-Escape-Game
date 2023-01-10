@@ -7,36 +7,43 @@ const bddesc = [
         "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia, exercitationem inventore voluptatum distinctio dicta in fuga repellat iusto saepe architecto porro necessitatibus error sit quod cum nisi? Reprehenderit, rerum veritatis!",
         "price": 99,
         "minplayers": 4,
-        "planning": {
-            "monday": {
+        "planning": [
+            {
+                day: "monday",
+                morning: true,
+                afternoon: false
+            },
+            {
+                day: "tuesday",
                 morning: true,
                 afternoon: true
             },
-            "tuesday": {
+            {
+                day: "wednesday",
+                morning: false,
+                afternoon: false
+            },
+            {
+                day: "thursday",
                 morning: true,
                 afternoon: true
             },
-            "wednesday": {
+            {
+                day: "friday",
                 morning: true,
                 afternoon: true
             },
-            "thursday": {
+            {
+                day: "saturday",
+                morning: false,
+                afternoon: true
+            },
+            {
+                day: "sunday",
                 morning: true,
                 afternoon: true
             },
-            "friday": {
-                morning: true,
-                afternoon: true
-            },
-            "saturday": {
-                morning: true,
-                afternoon: true
-            },
-            "sunday": {
-                morning: true,
-                afternoon: true
-            }
-        }
+        ]
     },
     {
         "name": "Inspecteur Gadget",
@@ -46,36 +53,43 @@ const bddesc = [
         "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia, exercitationem inventore voluptatum distinctio dicta in fuga repellat iusto saepe architecto porro necessitatibus error sit quod cum nisi? Reprehenderit, rerum veritatis!",
         "price": 99,
         "minplayers": 2,
-        "planning": {
-            "monday": {
+        "planning": [
+            {
+                day: "monday",
+                morning: true,
+                afternoon: false
+            },
+            {
+                day: "tuesday",
                 morning: true,
                 afternoon: true
             },
-            "tuesday": {
+            {
+                day: "wednesday",
+                morning: false,
+                afternoon: false
+            },
+            {
+                day: "thursday",
                 morning: true,
                 afternoon: true
             },
-            "wednesday": {
+            {
+                day: "friday",
                 morning: true,
                 afternoon: true
             },
-            "thursday": {
+            {
+                day: "saturday",
+                morning: false,
+                afternoon: true
+            },
+            {
+                day: "sunday",
                 morning: true,
                 afternoon: true
             },
-            "friday": {
-                morning: true,
-                afternoon: true
-            },
-            "saturday": {
-                morning: true,
-                afternoon: true
-            },
-            "sunday": {
-                morning: true,
-                afternoon: true
-            }
-        }
+        ]
     },
     {
         "name": "Sherlock Holmes",
@@ -85,36 +99,43 @@ const bddesc = [
         "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia, exercitationem inventore voluptatum distinctio dicta in fuga repellat iusto saepe architecto porro necessitatibus error sit quod cum nisi? Reprehenderit, rerum veritatis!",
         "price": 89,
         "minplayers": 3,
-        "planning": {
-            "monday": {
+        "planning": [
+            {
+                day: "monday",
+                morning: true,
+                afternoon: false
+            },
+            {
+                day: "tuesday",
                 morning: true,
                 afternoon: true
             },
-            "tuesday": {
+            {
+                day: "wednesday",
+                morning: false,
+                afternoon: false
+            },
+            {
+                day: "thursday",
                 morning: true,
                 afternoon: true
             },
-            "wednesday": {
+            {
+                day: "friday",
                 morning: true,
                 afternoon: true
             },
-            "thursday": {
+            {
+                day: "saturday",
+                morning: false,
+                afternoon: true
+            },
+            {
+                day: "sunday",
                 morning: true,
                 afternoon: true
             },
-            "friday": {
-                morning: true,
-                afternoon: true
-            },
-            "saturday": {
-                morning: true,
-                afternoon: true
-            },
-            "sunday": {
-                morning: true,
-                afternoon: true
-            }
-        }
+        ]
     },
     {
         "name": "Les Aventures de Tintin",
@@ -124,36 +145,43 @@ const bddesc = [
         "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia, exercitationem inventore voluptatum distinctio dicta in fuga repellat iusto saepe architecto porro necessitatibus error sit quod cum nisi? Reprehenderit, rerum veritatis!",
         "price": 79,
         "minplayers": 4,
-        "planning": {
-            "monday": {
+        "planning": [
+            {
+                day: "monday",
+                morning: true,
+                afternoon: false
+            },
+            {
+                day: "tuesday",
                 morning: true,
                 afternoon: true
             },
-            "tuesday": {
+            {
+                day: "wednesday",
+                morning: false,
+                afternoon: false
+            },
+            {
+                day: "thursday",
                 morning: true,
                 afternoon: true
             },
-            "wednesday": {
+            {
+                day: "friday",
                 morning: true,
                 afternoon: true
             },
-            "thursday": {
+            {
+                day: "saturday",
+                morning: false,
+                afternoon: true
+            },
+            {
+                day: "sunday",
                 morning: true,
                 afternoon: true
             },
-            "friday": {
-                morning: true,
-                afternoon: true
-            },
-            "saturday": {
-                morning: true,
-                afternoon: true
-            },
-            "sunday": {
-                morning: true,
-                afternoon: true
-            }
-        }
+        ]
     },
     {
         "name": "Indiana Jones",
@@ -163,36 +191,43 @@ const bddesc = [
         "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia, exercitationem inventore voluptatum distinctio dicta in fuga repellat iusto saepe architecto porro necessitatibus error sit quod cum nisi? Reprehenderit, rerum veritatis!",
         "price": 99,
         "minplayers": 2,
-        "planning": {
-            "monday": {
+        "planning": [
+            {
+                day: "monday",
+                morning: true,
+                afternoon: false
+            },
+            {
+                day: "tuesday",
                 morning: true,
                 afternoon: true
             },
-            "tuesday": {
+            {
+                day: "wednesday",
+                morning: false,
+                afternoon: false
+            },
+            {
+                day: "thursday",
                 morning: true,
                 afternoon: true
             },
-            "wednesday": {
+            {
+                day: "friday",
                 morning: true,
                 afternoon: true
             },
-            "thursday": {
+            {
+                day: "saturday",
+                morning: false,
+                afternoon: true
+            },
+            {
+                day: "sunday",
                 morning: true,
                 afternoon: true
             },
-            "friday": {
-                morning: true,
-                afternoon: true
-            },
-            "saturday": {
-                morning: true,
-                afternoon: true
-            },
-            "sunday": {
-                morning: true,
-                afternoon: true
-            }
-        }
+        ]
     },
     {
         "name": "Scooby-Doo & Batman",
@@ -202,36 +237,43 @@ const bddesc = [
         "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia, exercitationem inventore voluptatum distinctio dicta in fuga repellat iusto saepe architecto porro necessitatibus error sit quod cum nisi? Reprehenderit, rerum veritatis!",
         "price": 99,
         "minplayers": 4,
-        "planning": {
-            "monday": {
+        "planning": [
+            {
+                day: "monday",
+                morning: true,
+                afternoon: false
+            },
+            {
+                day: "tuesday",
                 morning: true,
                 afternoon: true
             },
-            "tuesday": {
+            {
+                day: "wednesday",
+                morning: false,
+                afternoon: false
+            },
+            {
+                day: "thursday",
                 morning: true,
                 afternoon: true
             },
-            "wednesday": {
+            {
+                day: "friday",
                 morning: true,
                 afternoon: true
             },
-            "thursday": {
+            {
+                day: "saturday",
+                morning: false,
+                afternoon: true
+            },
+            {
+                day: "sunday",
                 morning: true,
                 afternoon: true
             },
-            "friday": {
-                morning: true,
-                afternoon: true
-            },
-            "saturday": {
-                morning: true,
-                afternoon: true
-            },
-            "sunday": {
-                morning: true,
-                afternoon: true
-            }
-        }
-    }
+        ]
+    },
 ]
 export default bddesc
