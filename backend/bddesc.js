@@ -1,4 +1,4 @@
-[
+const bddesc = [
     {
         "name": "Ghost Buster",
         "age": 16,
@@ -234,3 +234,4 @@
         }
     }
 ]
+export default bddesc

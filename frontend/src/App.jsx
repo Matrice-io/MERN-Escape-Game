@@ -5,6 +5,7 @@ import { ThemeProvider } from '@emotion/react';
 import SignIn from "./components/SignIn";
 import SignUp from "./components/SignUp";
 import Footer from "./components/Footer";
+import Home from "./components/Home";
 
 const theme = createTheme({
     palette: {
@@ -23,7 +24,8 @@ function App() {
     <ThemeProvider theme={theme}>
       <Header />
       {/* <SignIn /> */}
-      <SignUp />
+      {/* <SignUp /> */}
+      <Home />
       <Footer />
     </ThemeProvider>
   )
