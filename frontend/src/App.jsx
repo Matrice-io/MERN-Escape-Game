@@ -5,6 +5,7 @@ import SignIn from "./components/SignIn";
 import SignUp from "./components/SignUp";
 import Footer from "./components/Footer";
 import Home from "./components/Home";
+import RoomDetails from "./components/RoomDetails";
 import { Routes, Route } from 'react-router-dom'
 
 const theme = createTheme({
@@ -22,11 +23,12 @@ function App() {
 
   return (
     <ThemeProvider theme={theme}>
-      <Header />
+      <Header />  
       <Routes>
         <Route path="/login" element={<SignIn />} />
         <Route path="/signup" element={<SignUp />} />
         <Route path="/" element={<Home />} />
+        <Route path="/room/:roomId" element={<RoomDetails />} />
       </Routes>
       <Footer />
     </ThemeProvider>

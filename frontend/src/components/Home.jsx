@@ -6,8 +6,14 @@ const Home = () => {
     return (
         <ul className='home-list'>
             {bddesc.map((room) => (
-                <li key={room.name}><RoomCard image={room.img} description={room.description} title={room.name}/></li>
-            ))}      
+                <li key={room.name}>
+                    <RoomCard 
+                        image={room.img} 
+                        description={room.description} 
+                        title={room.name}
+                        id={room.name}/>
+                </li>
+            ))}
         </ul>
     );
 }

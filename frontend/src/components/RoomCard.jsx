@@ -1,5 +1,3 @@
-
-
 import * as React from 'react';
 import Card from '@mui/material/Card';
 import CardActions from '@mui/material/CardActions';
@@ -7,8 +5,9 @@ import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
+import { Link } from '@mui/material';
 
-const RoomCard = ({image, title, description}) => {
+const RoomCard = ({image, title, description, id}) => {
   return (
     <Card sx={{ maxWidth: 345, m: 1 }}>
       <CardMedia
@@ -25,7 +24,11 @@ const RoomCard = ({image, title, description}) => {
         </Typography>
       </CardContent>
       <CardActions>
-        <Button size="small">Réserver</Button>
+        <Button size="small">
+          <Link sx={{ textDecoration: "none" }} href={`/room/${id}`}>
+            Réserver
+          </Link>
+        </Button>
       </CardActions>
     </Card>
   );

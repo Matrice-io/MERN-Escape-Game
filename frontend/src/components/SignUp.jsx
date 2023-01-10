@@ -28,7 +28,7 @@ const SignUp = () => {
             <form>
                 <FormControl fullWidth>
                 <div className='signUp-name-surname-inputs'>
-                    <TextField fullWidth={false} sx={{mt: 2, }} variant='outlined' type='text' label="prénom" required>
+                    <TextField fullWidth={false} sx={{mt: 2, }} variant='outlined' type='text' label="Prénom" required>
                     </TextField>
                     <TextField fullWidth={false}  sx={{mt: 2}} variant='outlined' type="text" label='Nom' required>
                     </TextField>
