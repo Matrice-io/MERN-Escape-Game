@@ -10,7 +10,7 @@ import Typography from '@mui/material/Typography';
 
 const RoomCard = ({image, title, description}) => {
   return (
-    <Card sx={{ maxWidth: 345 }}>
+    <Card sx={{ maxWidth: 345, m: 1 }}>
       <CardMedia
         sx={{ height: 140 }}
         image={image}

@@ -4,7 +4,7 @@ import RoomCard from './RoomCard';
 
 const Home = () => {
     return (
-        <ul>
+        <ul className='home-list'>
             {bddesc.map((room) => (
                 <li key={room.name}><RoomCard image={room.img} description={room.description} title={room.name}/></li>
             ))}      
