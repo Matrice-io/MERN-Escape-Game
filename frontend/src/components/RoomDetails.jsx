@@ -16,7 +16,8 @@ import useFetch from "../utils/useFetch";
 
 const RoomDetails = () => {
   let { roomId } = useParams()
-  const { data, loading, error } = useFetch(`http://localhost:3000/rooms/${roomId}`)
+  const [updating, setUpdating] = React.useState(false)
+  const { data, loading, error } = useFetch(`http://localhost:3000/rooms/${roomId}`, updating)
 
   return (
     <>
@@ -38,7 +39,7 @@ const RoomDetails = () => {
           <Typography sx={{ mb: 2 }} variant="body2" color="text.secondary">
             {data.room[0].description}
           </Typography>
-          <RoomPlanning planning={data.room[0].planning} />
+          <RoomPlanning planning={data.room[0].planning} roomId={roomId} setUpdating={setUpdating} />
         </CardContent>
         <CardActions>
           <Button size="small">

@@ -1,37 +1,72 @@
 import { Button, Typography } from "@mui/material"
+import { useState } from "react";
 
-const RoomPlanning = ({ planning }) => {
+const RoomPlanning = ({ planning, roomId, setUpdating }) => {
     const frenchDays = ["Lundi", "Mardi", "Mercredi", "Jeudi", "Vendredi", "Samedi", "Dimanche"]
     const englishDays = ["monday", "tuesday", "wednesday", "thursday", "friday", "saturday", "sunday"]
+
+    async function putFetch(d) {
+        try {
+            await fetch(`http://localhost:3000/rooms/update/${roomId}`, {
+            method: 'PUT',
+            headers: { 'Content-Type': 'application/json'},
+            body: JSON.stringify(d)
+            })
+            setUpdating(u => !u)
+        }
+        catch(error) {
+            console.log('Updating error: ', error)
+            setUpdating(u => !u)
+        }
+    }
+
     return(
-        <div>
-            <Typography variant="h6">Disponibilités</Typography>
-            <ul className="planning-week">
-                {planning.map(day => (
-                    <li className="planning-day" key={day.day}>
-                        <Typography>
-                            {frenchDays[englishDays.indexOf(day.day)]}
-                        </Typography>
-                        <div className="planning-buttons">
-                            <Button 
-                                sx={{ mx: 1 }}
-                                variant="contained"
-                                color="success"
-                                disabled={!day.morning}>
-                                Matin
-                            </Button>
-                            <Button
-                                sx={{ mx: 1 }}
-                                color="success"
-                                variant="contained"
-                                disabled={!day.afternoon}>
-                                Aprèm
-                            </Button>
-                        </div>
-                    </li>
-                ))}
-            </ul>
-        </div>
+            <div>
+                <Typography variant="h6">Disponibilités</Typography>
+                <ul className="planning-week">
+                    {planning.map(day => (
+                        <li className="planning-day" key={day.day}>
+                            <Typography>
+                                {frenchDays[englishDays.indexOf(day.day)]}
+                            </Typography>
+                            <div className="planning-buttons">
+                                <Button 
+                                    sx={{ mx: 1 }}
+                                    variant="contained"
+                                    color="success"
+                                    disabled={!day.morning}
+                                    onClick={() => putFetch({
+                                        day: day.day,
+                                        data: {
+                                            day: day.day,
+                                            morning: false,
+                                            afternoon: day.afternoon
+                                        }
+                                    })}
+                                >
+                                    Matin
+                                </Button>
+                                <Button
+                                    sx={{ mx: 1 }}
+                                    color="success"
+                                    variant="contained"
+                                    disabled={!day.afternoon}
+                                    onClick={() => putFetch({
+                                        day: day.day,
+                                        data: {
+                                            day: day.day,
+                                            morning: day.morning,
+                                            afternoon: false
+                                        }
+                                    })}
+                                >
+                                    Aprèm
+                                </Button>
+                            </div>
+                        </li>
+                    ))}
+                </ul>
+            </div>
     )
 }
 

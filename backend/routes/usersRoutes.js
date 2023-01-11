@@ -16,30 +16,20 @@ const usersRoutes = (app) => {
         const users = await Users.find({})
         res.json({status:200, users:users})
     })
-    
+
     app.get('/users/:id', async (req,res)=> {
             const id = req.params.id
             const user = await Users.find({_id: id})
             res.json({status:200, user:user})
-        
     })
-    
+
     app.post('/users/add', async (req,res) => {
-        const data = {
-            name : req.body.name,
-            description: req.body.description,
-            price: req.body.price,
-            category: req.body.category,
-            creationDate : new Date()
-        }
-    
-        const user = new users(data)
+        const data = {...body}
+        const user = new user(data)
         const result = await user.save()
-    
-        res.json({status:200,result:result})
-    
+        res.json({status:200, result:result})
     })
-    
+
     app.put('/users/update/:id', async(req,res)=>{
         const id = req.params.id
         const data = {
@@ -48,9 +38,8 @@ const usersRoutes = (app) => {
             price: req.body.price,
             category: req.body.category
         }
-        const result = await users.updateOne({_id: id}, data)
+        const result = await Users.updateOne({_id: id}, data)
         res.json({status: 200, result: result})
-    
     })
 }
 
