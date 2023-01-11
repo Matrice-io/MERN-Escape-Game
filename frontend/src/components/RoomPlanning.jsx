@@ -3,7 +3,10 @@ import dayjs from 'dayjs';
 
 const RoomPlanning = ({ planning, roomId, setUpdating }) => {
     const frenchDays = ["Lundi", "Mardi", "Mercredi", "Jeudi", "Vendredi", "Samedi", "Dimanche"]
-    const englishDays = ["monday", "tuesday", "wednesday", "thursday", "friday", "saturday", "sunday"]
+    const englishDays = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"]
+
+    const d = new Date()
+    const today = d.getDate()
 
     async function putFetch(d) {
         try {
@@ -27,9 +30,9 @@ const RoomPlanning = ({ planning, roomId, setUpdating }) => {
                     {planning.map((day,index) => (
                         <li className="planning-day" key={day.day}>
                             <Typography>
-                                {/* {frenchDays[englishDays.indexOf(day.day)]} */}
-                                {/* {dayjs(`2023-01-${11+index}`).format('dddd D MMMM')} */}
-                                {new Date().toLocaleDateString()}
+                                {frenchDays[englishDays.indexOf(dayjs(`2023-07-${1+index}`).format(`dddd`))]}
+                                {" "}
+                                {dayjs(`2023-07-${1+index}`).format(`D/MM`)}
                             </Typography>
                             <div className="planning-buttons">
                                 <Button 

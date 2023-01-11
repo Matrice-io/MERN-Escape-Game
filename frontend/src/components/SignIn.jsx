@@ -5,7 +5,32 @@ import { FormControl, TextField, Typography, Button, Link } from '@mui/material'
 
 
 const SignIn = () => {
-    return (      
+
+    const postFetch = async (body) => {
+        try {
+            const response = await fetch('http://localhost:3000/login', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json'},
+                body: JSON.stringify(body)
+                })
+            console.log(response)
+        }
+        catch(error) {
+            console.log('POST error: ', error)
+        }
+    }
+
+    const handleSubmit = async (e) => {
+        e.preventDefault()
+        const body = {
+            email: e.target.elements.emailInput.value,
+            password: e.target.elements.passwordInput.value
+        }
+        postFetch(body)
+        e.target.reset()
+    }
+
+    return (
         <Container maxWidth="xs" className='signIn-container'>
             <div className='lock-background'>
                 <HttpsIcon color="secondary"/>
@@ -13,11 +38,11 @@ const SignIn = () => {
             <Typography variant='h5'>
                 Connexion
             </Typography>
-            <form>
+            <form onSubmit={(e) => handleSubmit(e)}>
                 <FormControl fullWidth>
-                    <TextField sx={{mt: 2, }} variant='outlined' type='email' label="Email" required>
+                    <TextField id="emailInput" sx={{mt: 2, }} variant='outlined' type='email' label="Email" required>
                     </TextField>
-                    <TextField sx={{my: 2}} variant='outlined' type='password' label='Mot de passe' required>
+                    <TextField id="passwordInput" sx={{my: 2}} variant='outlined' type='password' label='Mot de passe' required>
                     </TextField>
                     <Button color='info' variant="contained" type="submit">Connexion</Button>
                 </FormControl>
