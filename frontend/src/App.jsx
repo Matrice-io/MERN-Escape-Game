@@ -30,8 +30,8 @@ function App() {
         <Route path="/signup" element={<SignUp />} />
         <Route path="/" element={<Home />} />
         <Route path="/room/:roomId" element={<RoomDetails />} />
+        <Route path="/history" element={<History />} />
       </Routes>
-      <History path="/history" element={<History />} />
       <Footer />
     </ThemeProvider>
   )
