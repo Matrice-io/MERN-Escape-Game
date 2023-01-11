@@ -12,10 +12,10 @@ import { NavLink } from 'react-router-dom';
 
 const Header = () => {
     return (
-            <Box  sx={{ flexGrow: 1}}>
+            <Box>
             <AppBar position="static">
             <Toolbar>
-                <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
+                <Typography variant="h6" component="div">
                     <NavLink to="/">
                         <img className='logo' src='../assets/logo-esc.png' alt='escape-game-logo'/>
                     </NavLink>

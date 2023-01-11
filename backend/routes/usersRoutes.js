@@ -49,8 +49,7 @@ const usersRoutes = (app) => {
             category: req.body.category
         }
         const result = await users.updateOne({_id: id}, data)
-        res.json({status: 200, result: result})
-    
+        res.json({status: 200, result: result})    
     })
 }
 

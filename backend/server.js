@@ -5,6 +5,7 @@ const port = 3000 || process.env.PORT
 const MongoDBClient = require('./mongoDBClient')
 const roomsRoutes = require('./routes/roomsRoutes')
 const usersRoutes = require('./routes/usersRoutes')
+const bookingsRoutes = require('./routes/bookingsRoutes')
 
 app.use(express.urlencoded({ extended: true }))
 app.use(express.json())
@@ -19,6 +20,9 @@ roomsRoutes(app)
 
 //Route users 
 usersRoutes(app)
+
+//Route users 
+bookingsRoutes(app)
 
 
 app.listen(port, ()=>{
