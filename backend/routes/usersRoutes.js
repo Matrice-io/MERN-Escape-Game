@@ -24,23 +24,18 @@ const usersRoutes = (app) => {
     })
 
     app.post('/users/add', async (req,res) => {
-        const data = {...body}
-        const user = new user(data)
+        const data = {...req.body}
+        const user = new Users(data)
         const result = await user.save()
         res.json({status:200, result:result})
     })
 
-    app.put('/users/update/:id', async(req,res)=>{
-        const id = req.params.id
-        const data = {
-            name : req.body.name,
-            description: req.body.description,
-            price: req.body.price,
-            category: req.body.category
-        }
-        const result = await Users.updateOne({_id: id}, data)
-        res.json({status: 200, result: result})
-    })
+// Route PUT inutile pour l'instant mais pourrait, ultérieurement, servir à modifier le mot de passe.
+    // app.put('/users/update/:id', async(req,res)=>{
+    //     const id = req.params.id
+    //     const result = await Users.updateOne({_id: id}, {...req.body})
+    //     res.json({status: 200, result: result})
+    // })
 }
 
 module.exports = usersRoutes
