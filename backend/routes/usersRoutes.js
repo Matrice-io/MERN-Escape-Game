@@ -58,7 +58,7 @@ const usersRoutes = (app) => {
     })
 
     function withAuth(req, res, next) {
-        const token = req.headers['autorization']
+        const token = req.headers['authorization']
         if(token === null) {
             res.json({status: 401, msg: "bad token"})
         }
