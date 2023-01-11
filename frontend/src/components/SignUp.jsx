@@ -37,7 +37,6 @@ const SignUp = () => {
             alert("Votre mot de passe n'est pas confirmé")
             return
         }
-        console.log('went here')
         const body = {
             userName: e.target.elements.nameInput.value,
             surname: e.target.elements.surnameInput.value,
@@ -46,9 +45,9 @@ const SignUp = () => {
             password: e.target.elements.passwordInput.value,
             admin: false
         }
-        console.log('went there')
         postFetch(body)
         e.target.reset()
+        setDate(dayjs())
     }
 
     return (
@@ -71,7 +70,7 @@ const SignUp = () => {
                     </TextField>
                 <LocalizationProvider dateAdapter={AdapterDayjs}>
                     <DesktopDatePicker
-                    label="Date desktop"
+                    label="Date de naissance"
                     inputFormat="DD/MM/YYYY"
                     value={date}
                     onChange={handleChange}

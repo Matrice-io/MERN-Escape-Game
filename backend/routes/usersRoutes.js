@@ -1,4 +1,6 @@
 const Users = require('../models/users')
+const bcrypt = require('bcrypt')
+const saltRounds = 10
 
 const usersRoutes = (app) => {
     // Ces headers permettent :
@@ -24,10 +26,16 @@ const usersRoutes = (app) => {
     })
 
     app.post('/users/add', async (req,res) => {
-        const data = {...req.body}
-        const user = new Users(data)
-        const result = await user.save()
-        res.json({status:200, result:result})
+        bcrypt.genSalt(saltRounds, async function(err, salt) {
+            bcrypt.hash(req.body.password, salt, async function(err, hash) {
+                const user = new Users({
+                    ...req.body,
+                    password: hash
+                })
+                const result = await user.save()
+                res.json({status:200, result:result})
+            })
+        })
     })
 
 // Route PUT inutile pour l'instant mais pourrait, ultérieurement, servir à modifier le mot de passe.

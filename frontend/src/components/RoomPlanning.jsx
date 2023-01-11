@@ -1,5 +1,5 @@
 import { Button, Typography } from "@mui/material"
-import { useState } from "react";
+import dayjs from 'dayjs';
 
 const RoomPlanning = ({ planning, roomId, setUpdating }) => {
     const frenchDays = ["Lundi", "Mardi", "Mercredi", "Jeudi", "Vendredi", "Samedi", "Dimanche"]
@@ -24,10 +24,12 @@ const RoomPlanning = ({ planning, roomId, setUpdating }) => {
             <div>
                 <Typography variant="h6">Disponibilités</Typography>
                 <ul className="planning-week">
-                    {planning.map(day => (
+                    {planning.map((day,index) => (
                         <li className="planning-day" key={day.day}>
                             <Typography>
-                                {frenchDays[englishDays.indexOf(day.day)]}
+                                {/* {frenchDays[englishDays.indexOf(day.day)]} */}
+                                {/* {dayjs(`2023-01-${11+index}`).format('dddd D MMMM')} */}
+                                {new Date().toLocaleDateString()}
                             </Typography>
                             <div className="planning-buttons">
                                 <Button 
