@@ -31,3 +31,5 @@ const roomsRoutes = (app) => {
 }
 
 module.exports = roomsRoutes
+
+// const result = await Rooms.updateOne({_id: id}, {"$set": {'planning.index.time': false}})
