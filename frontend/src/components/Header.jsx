@@ -9,7 +9,6 @@ import { Link } from '@mui/material';
 import { NavLink } from 'react-router-dom';
 import { useState } from 'react';
 import { useEffect } from 'react';
-import TouchRipple from '@mui/material/ButtonBase/TouchRipple';
 
 
 
@@ -19,13 +18,10 @@ const Header = () => {
     const [ user, setUser ] = useState(
         storage 
         ? JSON.parse(storage)
-        : "not auth"
+        : ""
         )
 
-    const [ authentified, setAuthentified ] = useState(
-        // user.token ? true : false
-        false
-    )
+    const [ authentified, setAuthentified ] = useState(false)
     const [ loading, setLoading ] = useState(true)
 
     const checkAuth = async () => {
@@ -39,13 +35,12 @@ const Header = () => {
                 },
                 })
             const data = await resp.json()
+            setLoading(false)
             if(data.status === 200) {
                 setAuthentified(true)
-                setLoading(false)
             }
         }
         catch(err) {
-            console.log('check auth error')
             setAuthentified(false)
             setLoading(false)
         }
@@ -54,12 +49,13 @@ const Header = () => {
     useEffect(() => {
         user.token
         && checkAuth()
+        setLoading(false)
         // : setAuthentified(false)
     }, [user])
 
     const handleDisconnect = () => {
         localStorage.removeItem('user')
-        setUser("not auth")
+        setUser("")
         window.location = "/login"
     }
 
