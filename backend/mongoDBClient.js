@@ -1,12 +1,9 @@
 const mongoose = require('mongoose');
-// require('dontenv').config()
 
-// console.log(process.env.DB_USER)
 mongoose.set('strictQuery', false)
 
-const DB = "escapeGame"
-// const URI = `mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASSWORD}@cluster0.47cdf59.mongodb.net/${DB}?retryWrites=true&w=majority`;
-const URI = "mongodb+srv://root:root@cluster0.ud1m57v.mongodb.net/escapeGame?retryWrites=true&w=majority"
+const DB = process.env.DB
+const URI = process.env.URI
 
 
 const MongoDBClient = {

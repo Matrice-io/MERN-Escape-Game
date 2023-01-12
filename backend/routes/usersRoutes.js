@@ -1,4 +1,7 @@
 const Users = require('../models/users')
+const bcrypt = require('bcrypt')
+const jwt = require('jsonwebtoken')
+const saltRounds = 10
 
 const usersRoutes = (app) => {
     // Ces headers permettent :
@@ -16,41 +19,59 @@ const usersRoutes = (app) => {
         const users = await Users.find({})
         res.json({status:200, users:users})
     })
-    
+
     app.get('/users/:id', async (req,res)=> {
             const id = req.params.id
             const user = await Users.find({_id: id})
             res.json({status:200, user:user})
-        
     })
-    
+
     app.post('/users/add', async (req,res) => {
-        const data = {
-            name : req.body.name,
-            description: req.body.description,
-            price: req.body.price,
-            category: req.body.category,
-            creationDate : new Date()
-        }
-    
-        const user = new users(data)
-        const result = await user.save()
-    
-        res.json({status:200,result:result})
-    
+        bcrypt.genSalt(saltRounds, async function(err, salt) {
+            bcrypt.hash(req.body.password, salt, async function(err, hash) {
+                const user = new Users({
+                    ...req.body,
+                    password: hash
+                })
+                const result = await user.save()
+                res.json({status:200, result:result})
+            })
+        })
     })
-    
-    app.put('/users/update/:id', async(req,res)=>{
-        const id = req.params.id
-        const data = {
-            name : req.body.name,
-            description: req.body.description,
-            price: req.body.price,
-            category: req.body.category
+
+    app.post('/login', async (req, res) => {
+        const user = await Users.find({email: req.body.email})
+        if(user.length === 0) {
+            res.json({status:404, msg: "email doesn't exist"})
+        } else {
+            const matchPassword = await bcrypt.compare(req.body.password, user[0].password)
+            if(matchPassword) {
+                const token = jwt.sign({_id:user[0]._id}, process.env.SECRETTOKEN , {expiresIn: '1h'})
+                res.json({status:200, token, user:user})
+            }
+            else {
+                res.json({status: 401, msg:'bad password'})
+            }
         }
-        const result = await users.updateOne({_id: id}, data)
-        res.json({status: 200, result: result})
-    
+    })
+
+    function withAuth(req, res, next) {
+        const token = req.headers['authorization']
+        if(token === null) {
+            res.json({status: 401, msg: "no token"})
+        }
+        jwt.verify(token, process.env.SECRET_TOKEN, function(err, decoded) {
+            if(err) {
+                res.json({status: 401, msg: "bad token"})
+            }
+            req.body._id = decoded._id
+            next()
+        })
+    }
+
+    app.get('/checkToken', withAuth, async(req, res) => {
+        const user = await Users.find({_id: req.body._id})
+        res.json({status: 200, msg: "token ok", user:user[0]})
     })
 }
 

@@ -16,18 +16,16 @@ const roomsRoutes = (app) => {
         const rooms = await Rooms.find({})
         res.json({status:200, rooms:rooms})
     })
-    
+
     app.get('/rooms/:id', async (req,res)=> {
             const id = req.params.id
             const room = await Rooms.find({_id: id})
             res.json({status:200, room:room})
-        
     })
-    
+
     app.put('/rooms/update/:id', async(req,res)=>{
         const id = req.params.id
-        //planing[0].morning = false
-        const result = await Rooms.updateOne({_id: id}, {...body})
+        const result = await Rooms.updateOne({_id: id, 'planning.day': req.body.day}, {'planning.$': {...req.body}})
         res.json({status: 200, result: result})
     })
 }
