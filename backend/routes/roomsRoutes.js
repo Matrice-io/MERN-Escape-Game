@@ -25,8 +25,7 @@ const roomsRoutes = (app) => {
 
     app.put('/rooms/update/:id', async(req,res)=>{
         const id = req.params.id
-        const day = req.body.day
-        const result = await Rooms.updateOne({_id: id, 'planning.day': day}, {'planning.$': {...req.body.data}})
+        const result = await Rooms.updateOne({_id: id, 'planning.day': req.body.day}, {'planning.$': {...req.body}})
         res.json({status: 200, result: result})
     })
 }

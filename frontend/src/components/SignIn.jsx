@@ -13,7 +13,8 @@ const SignIn = () => {
                 headers: { 'Content-Type': 'application/json'},
                 body: JSON.stringify(body)
                 })
-            console.log(response)
+            const data = await response.json()
+            localStorage.setItem("token", JSON.stringify(data.token))
         }
         catch(error) {
             console.log('POST error: ', error)
@@ -27,7 +28,7 @@ const SignIn = () => {
             password: e.target.elements.passwordInput.value
         }
         postFetch(body)
-        e.target.reset()
+        window.location="/"
     }
 
     return (

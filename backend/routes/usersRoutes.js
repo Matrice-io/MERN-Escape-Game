@@ -39,8 +39,6 @@ const usersRoutes = (app) => {
         })
     })
 
-// A partir de là, tout est à tester !
-
     app.post('/login', async (req, res) => {
         const user = await Users.find({email: req.body.email})
         if(user.length === 0) {
@@ -60,7 +58,7 @@ const usersRoutes = (app) => {
     function withAuth(req, res, next) {
         const token = req.headers['authorization']
         if(token === null) {
-            res.json({status: 401, msg: "bad token"})
+            res.json({status: 401, msg: "no token"})
         }
         jwt.verify(token, process.env.SECRET_TOKEN, function(err, decoded) {
             if(err) {

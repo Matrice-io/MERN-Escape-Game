@@ -32,7 +32,7 @@ const RoomPlanning = ({ planning, roomId, setUpdating }) => {
                             <Typography>
                                 {frenchDays[englishDays.indexOf(dayjs(`2023-07-${1+index}`).format(`dddd`))]}
                                 {" "}
-                                {dayjs(`2023-07-${1+index}`).format(`D/MM`)}
+                                {dayjs(`2023-07-${1+index}`).format(`DD/MM`)}
                             </Typography>
                             <div className="planning-buttons">
                                 <Button 
@@ -41,12 +41,9 @@ const RoomPlanning = ({ planning, roomId, setUpdating }) => {
                                     color="success"
                                     disabled={!day.morning}
                                     onClick={() => putFetch({
-                                        day: day.day,
-                                        data: {
                                             day: day.day,
                                             morning: false,
                                             afternoon: day.afternoon
-                                        }
                                     })}
                                 >
                                     Matin
@@ -57,12 +54,9 @@ const RoomPlanning = ({ planning, roomId, setUpdating }) => {
                                     variant="contained"
                                     disabled={!day.afternoon}
                                     onClick={() => putFetch({
-                                        day: day.day,
-                                        data: {
                                             day: day.day,
                                             morning: day.morning,
                                             afternoon: false
-                                        }
                                     })}
                                 >
                                     Aprèm
