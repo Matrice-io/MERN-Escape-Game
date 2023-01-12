@@ -54,16 +54,17 @@ const usersRoutes = (app) => {
             }
         }
     })
-
+    const secretToken = process.env.SECRETTOKEN
     function withAuth(req, res, next) {
         const token = req.headers['authorization']
         if(token === null) {
             res.json({status: 401, msg: "no token"})
         }
-        jwt.verify(token, process.env.SECRET_TOKEN, function(err, decoded) {
+        jwt.verify(token, secretToken, function(err, decoded) {
             if(err) {
-                res.json({status: 401, msg: "bad token"})
+                res.json({status: 401, msg: `bad token: ${err}`})
             }
+            // if(!req.body._id) res.json({status: 401, msg: 'no _id'})
             req.body._id = decoded._id
             next()
         })
