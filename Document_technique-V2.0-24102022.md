@@ -1,4 +1,4 @@
-# Document technique - 5 janvier 2023
+# Document technique - 26 juin 2023
 
 # Présentation générale du projet
 
@@ -16,10 +16,9 @@ L'utilisation de ReactJS permettra de rafraîchir les pages en temps réel.
 
 La librairie MUI fournit des composants modernes pour faciliter la création de l'interface.
 
-
 ### Back
 
-- Language : Javascript avec NodeJS
+- Language : TypeScript / Javascript
 
 - Framework : ExpressJS avec l'ODM Mongoose (MongoDB)
 
@@ -41,9 +40,9 @@ Le fuseau horaire du site est Paris (GMT+2). L'interface est uniquement disponib
 
 Les utilisateurs sont répartis en deux catégories, nous appellerons ici :
 
-* player : les clients qui cherchent à réserver une salle de jeu à l'Escape Game
+- player : les clients qui cherchent à réserver une salle de jeu à l'Escape Game
 
-* admin : le responsable de l'Escape qui peut paramétrer la disponibilité des salles de jeu
+- admin : le responsable de l'Escape qui peut paramétrer la disponibilité des salles de jeu
 
 <br>
 
@@ -68,45 +67,45 @@ Lorsqu'un utilisateur veut réserver un créneau, il a accès à une page où il
 
 Le créneau ainsi réservé devient indisponible aux autres utilisateurs. Il est affiché dans l'espace de gestion des réservations de l'utilisateur ayant fait la réservation.
 
- NB: un utilisateur doit avoir 18 ans minimum au moment de la réservation.
+NB: un utilisateur doit avoir 18 ans minimum au moment de la réservation.
 
 <br>
 
-# Maquettes 
+# Maquettes
 
- Utilisateur non-connecté :
+Utilisateur non-connecté :
 
- - signin : 
- ![maquette](./maquettes/maquette1.png)
+- signin :
+  ![maquette](./maquettes/maquette1.png)
 
- - signup :
- ![maquette](./maquettes/maquette2.png)
-
- - list : 
- ![maquette](./maquettes/maquette6.png)
-
- - details :
- ![maquette](./maquettes/maquette7.png)
-
-- booking :
- ![maquette](./maquettes/maquette8.png)
-
- Utilisateur connecté : 
+- signup :
+  ![maquette](./maquettes/maquette2.png)
 
 - list :
- ![maquette](./maquettes/maquette3.png)
-
- - booking :
- ![maquette](./maquettes/maquette4.png)
-
- - history :
- ![maquette](./maquettes/maquette5.png)
+  ![maquette](./maquettes/maquette6.png)
 
 - details :
- ![maquette](./maquettes/maquette9.png)
+  ![maquette](./maquettes/maquette7.png)
 
- - booking :
- ![maquette](./maquettes/maquette10.png)
+- booking :
+  ![maquette](./maquettes/maquette8.png)
 
- - booking :
- ![maquette](./maquettes/maquette11.png)
+Utilisateur connecté :
+
+- list :
+  ![maquette](./maquettes/maquette3.png)
+
+- booking :
+  ![maquette](./maquettes/maquette4.png)
+
+- history :
+  ![maquette](./maquettes/maquette5.png)
+
+- details :
+  ![maquette](./maquettes/maquette9.png)
+
+- booking :
+  ![maquette](./maquettes/maquette10.png)
+
+- booking :
+  ![maquette](./maquettes/maquette11.png)
